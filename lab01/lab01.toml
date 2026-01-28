@@ -1,0 +1,194 @@
+[[tests]]
+name = "c-01"
+input = ["./c/lab01", "1"]
+expected = """
+TK_INTLIT("1")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "c-02"
+input = ["./c/lab01", "1 + 2"]
+expected = """
+TK_INTLIT("1")
+TK_PLUS("+")
+TK_INTLIT("2")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "c-03"
+input = ["./c/lab01", "1 + 2 * 3 / 4"]
+expected = """
+TK_INTLIT("1")
+TK_PLUS("+")
+TK_INTLIT("2")
+TK_MULT("*")
+TK_INTLIT("3")
+TK_DIV("/")
+TK_INTLIT("4")
+TK_EOT("")
+"""
+rubric = 10
+
+[[tests]]
+name = "c-04"
+input = ["./c/lab01", "1+2*3/4"]
+expected = """
+TK_INTLIT("1")
+TK_PLUS("+")
+TK_INTLIT("2")
+TK_MULT("*")
+TK_INTLIT("3")
+TK_DIV("/")
+TK_INTLIT("4")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "c-05"
+input = ["./c/lab01", "(0b1010 >> 2) & 0b01"]
+expected = """
+TK_LPAREN("(")
+TK_BINLIT("1010")
+TK_LSR(">>")
+TK_INTLIT("2")
+TK_RPAREN(")")
+TK_AND("&")
+TK_BINLIT("01")
+TK_EOT("")
+"""
+rubric = 10
+
+[[tests]]
+name = "c-06"
+input = ["./c/lab01", "0b11001001"]
+expected = """
+TK_BINLIT("11001001")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "c-07"
+input = ["./c/lab01", "123 0b101 + - * / >> >- << ~ & | ^ ( )"]
+expected = """
+TK_INTLIT("123")
+TK_BINLIT("101")
+TK_PLUS("+")
+TK_MINUS("-")
+TK_MULT("*")
+TK_DIV("/")
+TK_LSR(">>")
+TK_ASR(">-")
+TK_LSL("<<")
+TK_NOT("~")
+TK_AND("&")
+TK_OR("|")
+TK_XOR("^")
+TK_LPAREN("(")
+TK_RPAREN(")")
+TK_EOT("")
+"""
+rubric = 10
+
+[[tests]]
+name = "rust-01"
+input = ["./rust/target/debug/lab01", "1"]
+expected = """
+TK_INTLIT("1")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-02"
+input = ["./rust/target/debug/lab01", "1 + 2"]
+expected = """
+TK_INTLIT("1")
+TK_PLUS("+")
+TK_INTLIT("2")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-03"
+input = ["./rust/target/debug/lab01", "1 + 2 * 3 / 4"]
+expected = """
+TK_INTLIT("1")
+TK_PLUS("+")
+TK_INTLIT("2")
+TK_MULT("*")
+TK_INTLIT("3")
+TK_DIV("/")
+TK_INTLIT("4")
+TK_EOT("")
+"""
+rubric = 10
+
+[[tests]]
+name = "rust-04"
+input = ["./rust/target/debug/lab01", "1+2*3/4"]
+expected = """
+TK_INTLIT("1")
+TK_PLUS("+")
+TK_INTLIT("2")
+TK_MULT("*")
+TK_INTLIT("3")
+TK_DIV("/")
+TK_INTLIT("4")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-05"
+input = ["./rust/target/debug/lab01", "(0b1010 >> 2) & 0b01"]
+expected = """
+TK_LPAREN("(")
+TK_BINLIT("1010")
+TK_LSR(">>")
+TK_INTLIT("2")
+TK_RPAREN(")")
+TK_AND("&")
+TK_BINLIT("01")
+TK_EOT("")
+"""
+rubric = 10
+
+[[tests]]
+name = "rust-06"
+input = ["./rust/target/debug/lab01", "0b11001001"]
+expected = """
+TK_BINLIT("11001001")
+TK_EOT("")
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-07"
+input = ["./rust/target/debug/lab01", "123 0b101 + - * / >> >- << ~ & | ^ ( )"]
+expected = """
+TK_INTLIT("123")
+TK_BINLIT("101")
+TK_PLUS("+")
+TK_MINUS("-")
+TK_MULT("*")
+TK_DIV("/")
+TK_LSR(">>")
+TK_ASR(">-")
+TK_LSL("<<")
+TK_NOT("~")
+TK_AND("&")
+TK_OR("|")
+TK_XOR("^")
+TK_LPAREN("(")
+TK_RPAREN(")")
+TK_EOT("")
+"""
+rubric = 10
+
