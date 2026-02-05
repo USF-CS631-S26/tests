@@ -1,0 +1,262 @@
+[[tests]]
+name = "c-01"
+input = ["./c/lab02", "-e", "1 + 2"]
+expected = """
+EXPR OPER2 PLUS
+..EXPR INTVAL 1
+..EXPR INTVAL 2
+"""
+rubric = 5
+
+[[tests]]
+name = "c-02"
+input = ["./c/lab02", "-e", "(1 + 2) * 3"]
+expected = """
+EXPR OPER2 MULT
+..EXPR OPER2 PLUS
+....EXPR INTVAL 1
+....EXPR INTVAL 2
+..EXPR INTVAL 3
+"""
+rubric = 5
+
+[[tests]]
+name = "c-03"
+input = ["./c/lab02", "-e", "4 * (10 / 5)"]
+expected = """
+EXPR OPER2 MULT
+..EXPR INTVAL 4
+..EXPR OPER2 DIV
+....EXPR INTVAL 10
+....EXPR INTVAL 5
+"""
+rubric = 5
+
+[[tests]]
+name = "c-04"
+input = ["./c/lab02", "-e", "(2 * (3 + (1 + 1)))"]
+expected = """
+EXPR OPER2 MULT
+..EXPR INTVAL 2
+..EXPR OPER2 PLUS
+....EXPR INTVAL 3
+....EXPR OPER2 PLUS
+......EXPR INTVAL 1
+......EXPR INTVAL 1
+"""
+rubric = 5
+
+[[tests]]
+name = "c-05"
+input = ["./c/lab02", "-e", "-4 + 3"]
+expected = """
+EXPR OPER2 PLUS
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+..EXPR INTVAL 3
+"""
+rubric = 5
+
+[[tests]]
+name = "c-06"
+input = ["./c/lab02", "-e", "-4 + -4"]
+expected = """
+EXPR OPER2 PLUS
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+"""
+rubric = 5
+
+[[tests]]
+name = "c-07"
+input = ["./c/lab02", "-e", "(0b1010 >> 2) & 0b01"]
+expected = """
+EXPR OPER2 AND
+..EXPR OPER2 LSR
+....EXPR INTVAL 10
+....EXPR INTVAL 2
+..EXPR INTVAL 1
+"""
+rubric = 5
+
+[[tests]]
+name = "c-08"
+input = ["./c/lab02", "-e", "---------913"]
+expected = """
+EXPR OPER1 MINUS
+..EXPR OPER1 MINUS
+....EXPR OPER1 MINUS
+......EXPR OPER1 MINUS
+........EXPR OPER1 MINUS
+..........EXPR OPER1 MINUS
+............EXPR OPER1 MINUS
+..............EXPR OPER1 MINUS
+................EXPR OPER1 MINUS
+..................EXPR INTVAL 913
+"""
+rubric = 5
+
+[[tests]]
+name = "c-09"
+input = ["./c/lab02", "-e", "(---(0b11001001) + (0b1111 - 0b10)) - (1-2+(3 + 4))"]
+expected = """
+EXPR OPER2 MINUS
+..EXPR OPER2 PLUS
+....EXPR OPER1 MINUS
+......EXPR OPER1 MINUS
+........EXPR OPER1 MINUS
+..........EXPR INTVAL 201
+....EXPR OPER2 MINUS
+......EXPR INTVAL 15
+......EXPR INTVAL 2
+..EXPR OPER2 PLUS
+....EXPR OPER2 MINUS
+......EXPR INTVAL 1
+......EXPR INTVAL 2
+....EXPR OPER2 PLUS
+......EXPR INTVAL 3
+......EXPR INTVAL 4
+"""
+rubric = 5
+
+[[tests]]
+name = "c-10"
+input = ["./c/lab02", "-e", "(1 + ((2 +3) + 4"]
+expected = """
+parse_error: Missing right paren
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-01"
+input = ["./rust/target/debug/lab02", "-e", "1 + 2"]
+expected = """
+EXPR OPER2 PLUS
+..EXPR INTVAL 1
+..EXPR INTVAL 2
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-02"
+input = ["./rust/target/debug/lab02", "-e", "(1 + 2) * 3"]
+expected = """
+EXPR OPER2 MULT
+..EXPR OPER2 PLUS
+....EXPR INTVAL 1
+....EXPR INTVAL 2
+..EXPR INTVAL 3
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-03"
+input = ["./rust/target/debug/lab02", "-e", "4 * (10 / 5)"]
+expected = """
+EXPR OPER2 MULT
+..EXPR INTVAL 4
+..EXPR OPER2 DIV
+....EXPR INTVAL 10
+....EXPR INTVAL 5
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-04"
+input = ["./rust/target/debug/lab02", "-e", "(2 * (3 + (1 + 1)))"]
+expected = """
+EXPR OPER2 MULT
+..EXPR INTVAL 2
+..EXPR OPER2 PLUS
+....EXPR INTVAL 3
+....EXPR OPER2 PLUS
+......EXPR INTVAL 1
+......EXPR INTVAL 1
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-05"
+input = ["./rust/target/debug/lab02", "-e", "-4 + 3"]
+expected = """
+EXPR OPER2 PLUS
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+..EXPR INTVAL 3
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-06"
+input = ["./rust/target/debug/lab02", "-e", "-4 + -4"]
+expected = """
+EXPR OPER2 PLUS
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+..EXPR OPER1 MINUS
+....EXPR INTVAL 4
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-07"
+input = ["./rust/target/debug/lab02", "-e", "(0b1010 >> 2) & 0b01"]
+expected = """
+EXPR OPER2 AND
+..EXPR OPER2 LSR
+....EXPR INTVAL 10
+....EXPR INTVAL 2
+..EXPR INTVAL 1
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-08"
+input = ["./rust/target/debug/lab02", "-e", "---------913"]
+expected = """
+EXPR OPER1 MINUS
+..EXPR OPER1 MINUS
+....EXPR OPER1 MINUS
+......EXPR OPER1 MINUS
+........EXPR OPER1 MINUS
+..........EXPR OPER1 MINUS
+............EXPR OPER1 MINUS
+..............EXPR OPER1 MINUS
+................EXPR OPER1 MINUS
+..................EXPR INTVAL 913
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-09"
+input = ["./rust/target/debug/lab02", "-e", "(---(0b11001001) + (0b1111 - 0b10)) - (1-2+(3 + 4))"]
+expected = """
+EXPR OPER2 MINUS
+..EXPR OPER2 PLUS
+....EXPR OPER1 MINUS
+......EXPR OPER1 MINUS
+........EXPR OPER1 MINUS
+..........EXPR INTVAL 201
+....EXPR OPER2 MINUS
+......EXPR INTVAL 15
+......EXPR INTVAL 2
+..EXPR OPER2 PLUS
+....EXPR OPER2 MINUS
+......EXPR INTVAL 1
+......EXPR INTVAL 2
+....EXPR OPER2 PLUS
+......EXPR INTVAL 3
+......EXPR INTVAL 4
+"""
+rubric = 5
+
+[[tests]]
+name = "rust-10"
+input = ["./rust/target/debug/lab02", "-e", "(1 + ((2 +3) + 4"]
+expected = """
+parse_error: Missing right paren
+"""
+rubric = 5
+
