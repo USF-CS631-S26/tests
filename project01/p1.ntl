@@ -1,0 +1,7 @@
+x = 1 + 2
+print(x, 10, 32)
+print(x, 2, 32)
+print(x, 16, 32)
+print(x, 2, 4)
+print(x, 16, 4)
+

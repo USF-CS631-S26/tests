@@ -1,0 +1,10 @@
+# Quadratic equation
+
+x = 7
+a = 3
+b = 4
+c = 5
+
+q = (a * x * x) + (b * x) + c
+
+print(q, 10, 32)
