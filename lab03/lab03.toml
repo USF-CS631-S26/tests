@@ -1,6 +1,6 @@
 [[tests]]
 name = "add4-1"
-input = ["./add4", "1", "2", "3", "4"]
+input = ["./target/debug/add4", "1", "2", "3", "4"]
 expected = """
 Rust: 10
 Asm: 10
@@ -9,7 +9,7 @@ rubric = 10
 
 [[tests]]
 name = "add4-2"
-input = ["./add4", "-1", "2", "3", "4"]
+input = ["./target/debug/add4", "-1", "2", "3", "4"]
 expected = """
 Rust: 8
 Asm: 8
@@ -18,7 +18,7 @@ rubric = 10
 
 [[tests]]
 name = "quadratic-1"
-input = ["./quadratic", "4", "3", "2", "1"]
+input = ["./target/debug/quadratic", "4", "3", "2", "1"]
 expected = """
 Rust: 57
 Asm: 57
@@ -27,7 +27,7 @@ rubric = 10
 
 [[tests]]
 name = "quadratic-2"
-input = ["./quadratic", "2", "4", "6", "8"]
+input = ["./target/debug/quadratic", "2", "4", "6", "8"]
 expected = """
 Rust: 36
 Asm: 36
@@ -36,7 +36,7 @@ rubric = 10
 
 [[tests]]
 name = "min-1"
-input = ["./min", "1", "2"]
+input = ["./target/debug/min", "1", "2"]
 expected = """
 Rust: 1
 Asm: 1
@@ -45,7 +45,7 @@ rubric = 15
 
 [[tests]]
 name = "min-2"
-input = ["./min", "2", "-1"]
+input = ["./target/debug/min", "2", "-1"]
 expected = """
 Rust: -1
 Asm: -1
@@ -54,7 +54,7 @@ rubric = 15
 
 [[tests]]
 name = "findmax-1"
-input = ["./findmax", "1", "2", "33", "4", "5"]
+input = ["./target/debug/findmax", "1", "2", "33", "4", "5"]
 expected = """
 Rust: 33
 Asm: 33
@@ -63,7 +63,7 @@ rubric = 15
 
 [[tests]]
 name = "findmax-2"
-input = ["./findmax", "1", "2", "3", "4", "5", "6", "99"]
+input = ["./target/debug/findmax", "1", "2", "3", "4", "5", "6", "99"]
 expected = """
 Rust: 99
 Asm: 99
@@ -72,7 +72,7 @@ rubric = 15
 
 [[tests]]
 name = "grade-1"
-input = ["./grade", "85"]
+input = ["./target/debug/grade", "85"]
 expected = """
 Rust: 3
 Asm: 3
@@ -81,7 +81,7 @@ rubric = 10
 
 [[tests]]
 name = "grade-2"
-input = ["./grade", "55"]
+input = ["./target/debug/grade", "55"]
 expected = """
 Rust: 0
 Asm: 0
@@ -90,7 +90,7 @@ rubric = 10
 
 [[tests]]
 name = "sum_to_n-1"
-input = ["./sum_to_n", "10"]
+input = ["./target/debug/sum_to_n", "10"]
 expected = """
 Rust: 55
 Asm: 55
@@ -99,7 +99,7 @@ rubric = 10
 
 [[tests]]
 name = "sum_to_n-2"
-input = ["./sum_to_n", "1"]
+input = ["./target/debug/sum_to_n", "1"]
 expected = """
 Rust: 1
 Asm: 1
