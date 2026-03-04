@@ -1,3 +1,5 @@
+timeout = 120
+
 [[tests]]
 name = "add4-1"
 input = ["./target/debug/add4", "1", "2", "3", "4"]
