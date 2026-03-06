@@ -1,0 +1,91 @@
+timeout = 120
+
+[[tests]]
+name = "max3_1"
+input = ["./target/debug/max3", "1", "2", "3"]
+expected = """
+Rust: 3
+Asm: 3
+"""
+rubric = 11
+
+[[tests]]
+name = "max3_2"
+input = ["./target/debug/max3", "3", "2", "1"]
+expected = """
+Rust: 3
+Asm: 3
+"""
+rubric = 11
+
+[[tests]]
+name = "swap_1"
+input = ["./target/debug/swap", "0", "1", "22", "33"]
+expected = """
+Rust: 33 22
+Asm: 33 22
+"""
+rubric = 10
+
+[[tests]]
+name = "swap_2"
+input = ["./target/debug/swap", "4", "3", "11", "22", "33", "55", "66", "77"]
+expected = """
+Rust: 11 22 33 66 55 77
+Asm: 11 22 33 66 55 77
+"""
+rubric = 10
+
+[[tests]]
+name = "sumabs-1"
+input = ["./target/debug/sumabs", "-3", "5", "-7", "2"]
+expected = """
+Rust: 17
+Asm: 17
+"""
+rubric = 10
+
+[[tests]]
+name = "sumabs-2"
+input = ["./target/debug/sumabs", "0", "-1", "0"]
+expected = """
+Rust: 1
+Asm: 1
+"""
+rubric = 10
+
+[[tests]]
+name = "sort_1"
+input = ["./target/debug/sort", "33", "22", "11"]
+expected = """
+Rust: 11 22 33
+Asm: 11 22 33
+"""
+rubric = 10
+
+[[tests]]
+name = "sort_2"
+input = ["./target/debug/sort", "2", "7", "4", "1"]
+expected = """
+Rust: 1 2 4 7
+Asm: 1 2 4 7
+"""
+rubric = 10
+
+[[tests]]
+name = "fibrec-1"
+input = ["./target/debug/fibrec", "1"]
+expected = """
+Rust: 1
+Asm: 1
+"""
+rubric = 9
+
+[[tests]]
+name = "fibrec-10"
+input = ["./target/debug/fibrec", "10"]
+expected = """
+Rust: 55
+Asm: 55
+"""
+rubric = 9
