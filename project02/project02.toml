@@ -5,7 +5,6 @@ name = "rstr_1"
 input = ["./riscv-run", "rstr", "FooBar"]
 expected = """
 Rust: raBooF
-C: raBooF
 Asm: raBooF
 """
 rubric = 5
@@ -15,7 +14,6 @@ name = "rstr_2"
 input = ["./riscv-run", "rstr", "CS315 Computer Architecture"]
 expected = """
 Rust: erutcetihcrA retupmoC 513SC
-C: erutcetihcrA retupmoC 513SC
 Asm: erutcetihcrA retupmoC 513SC
 """
 rubric = 5
@@ -25,7 +23,6 @@ name = "rstr_rec_1"
 input = ["./riscv-run", "rstr_rec", "FooBar"]
 expected = """
 Rust: raBooF
-C: raBooF
 Asm: raBooF
 """
 rubric = 5
@@ -35,7 +32,6 @@ name = "rstr_rec_2"
 input = ["./riscv-run", "rstr_rec", "CS315 Computer Architecture"]
 expected = """
 Rust: erutcetihcrA retupmoC 513SC
-C: erutcetihcrA retupmoC 513SC
 Asm: erutcetihcrA retupmoC 513SC
 """
 rubric = 5
@@ -45,7 +41,6 @@ name = "pack_bytes_1"
 input = ["./riscv-run", "pack_bytes", "1", "2", "3", "4"]
 expected = """
 Rust: 16909060
-C: 16909060
 Asm: 16909060
 """
 rubric = 5
@@ -55,7 +50,6 @@ name = "pack_bytes_2"
 input = ["./riscv-run", "pack_bytes", "255", "255", "255", "255"]
 expected = """
 Rust: -1
-C: -1
 Asm: -1
 """
 rubric = 5
@@ -65,7 +59,6 @@ name = "unpack_bytes_1"
 input = ["./riscv-run", "unpack_bytes", "16909060"]
 expected = """
 Rust: 1 2 3 4
-C: 1 2 3 4
 Asm: 1 2 3 4
 """
 rubric = 5
@@ -75,7 +68,6 @@ name = "unpack_bytes_2"
 input = ["./riscv-run", "unpack_bytes", "-2"]
 expected = """
 Rust: 255 255 255 254
-C: 255 255 255 254
 Asm: 255 255 255 254
 """
 rubric = 5
@@ -85,7 +77,6 @@ name = "get_bitseq_1"
 input = ["./riscv-run", "get_bitseq", "94116", "12", "15"]
 expected = """
 Rust: 6
-C: 6
 Asm: 6
 """
 rubric = 1
@@ -95,7 +86,6 @@ name = "get_bitseq_2"
 input = ["./riscv-run", "get_bitseq", "94117", "4", "7"]
 expected = """
 Rust: 10
-C: 10
 Asm: 10
 """
 rubric = 1
@@ -105,7 +95,6 @@ name = "get_bitseq_signed_1"
 input = ["./riscv-run", "get_bitseq_signed", "94117", "12", "15"]
 expected = """
 Rust: 6
-C: 6
 Asm: 6
 """
 rubric = 4
@@ -115,14 +104,13 @@ name = "get_bitseq_signed_2"
 input = ["./riscv-run", "get_bitseq_signed", "94117", "4", "7"]
 expected = """
 Rust: -6
-C: -6
 Asm: -6
 """
 rubric = 4
 
 [[tests]]
 name = "ntlang_args"
-input = ["./target/debug/ntlang", "-e", "(a0 * a1) + a2", "-a0", "3", "-a1", "4", "-a2", "5"]
+input = ["./riscv-run", "ntlang", "-e", "(a0 * a1) + a2", "-a0", "3", "-a1", "4", "-a2", "5"]
 expected = """
 17
 """
@@ -130,7 +118,7 @@ rubric = 10
 
 [[tests]]
 name = "ntlang_comp_p1"
-input = ["./scripts/ntcomp.sh", "(3 * 4) + 5", "p1"]
+input = ["bash", "-c", "./riscv-run ntlang -e '(3 * 4) + 5' -c p1 && ./riscv-run ./p1; rm -f p1"]
 expected = """
 17 (0x11)
 """
@@ -138,7 +126,7 @@ rubric = 10
 
 [[tests]]
 name = "ntlang_comp_p2"
-input = ["./scripts/ntcomp.sh", "(a0 * a1) + a2", "p2", "3", "4", "5"]
+input = ["bash", "-c", "./riscv-run ntlang -e '(a0 * a1) + a2' -c p2 && ./riscv-run ./p2 3 4 5; rm -f p2"]
 expected = """
 17 (0x11)
 """
@@ -146,7 +134,7 @@ rubric = 10
 
 [[tests]]
 name = "ntlang_comp_p3"
-input = ["./scripts/ntcomp.sh", "(((((~((-(2 * ((1023 + 1) / 4)) >- 2) << 8)) >> 10) ^ 0b01110) & 0x1E) | ~(0b10000))", "p3"]
+input = ["bash", "-c", "./riscv-run ntlang -e \"(((((~((-(2 * ((1023 + 1) / 4)) >- 2) << 8)) >> 10) ^ 0b01110) & 0x1E) | ~(0b10000))\" -c p3 && ./riscv-run ./p3; rm -f p3"]
 expected = """
 -1 (0xFFFFFFFF)
 """
@@ -154,7 +142,7 @@ rubric = 10
 
 [[tests]]
 name = "ntlang_comp_p4"
-input = ["./scripts/ntcomp.sh", "(((((~((-(a0 * ((a1 + a2) / a3)) >- a4) << a5)) >> a6) ^ 0b01110) & 0x1E) | ~(0b10000))", "p4", "2", "1023", "1", "4", "2", "8", "10"]
+input = ["bash", "-c", "./riscv-run ntlang -e \"(((((~((-(a0 * ((a1 + a2) / a3)) >- a4) << a5)) >> a6) ^ 0b01110) & 0x1E) | ~(0b10000))\" -c p4 && ./riscv-run ./p4 2 1023 1 4 2 8 10; rm -f p4"]
 expected = """
 -1 (0xFFFFFFFF)
 """
