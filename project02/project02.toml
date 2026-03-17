@@ -11,10 +11,10 @@ rubric = 5
 
 [[tests]]
 name = "rstr_2"
-input = ["./riscv-run", "rstr", "CS315 Computer Architecture"]
+input = ["./riscv-run", "rstr", "CS631 Systems Foundations"]
 expected = """
-Rust: erutcetihcrA retupmoC 513SC
-Asm: erutcetihcrA retupmoC 513SC
+Rust: snoitadnuoF smetsyS 136SC
+Asm: snoitadnuoF smetsyS 136SC
 """
 rubric = 5
 
@@ -29,10 +29,10 @@ rubric = 5
 
 [[tests]]
 name = "rstr_rec_2"
-input = ["./riscv-run", "rstr_rec", "CS315 Computer Architecture"]
+input = ["./riscv-run", "rstr_rec", "CS631 Systems Foundations"]
 expected = """
-Rust: erutcetihcrA retupmoC 513SC
-Asm: erutcetihcrA retupmoC 513SC
+Rust: snoitadnuoF smetsyS 136SC
+Asm: snoitadnuoF smetsyS 136SC
 """
 rubric = 5
 
