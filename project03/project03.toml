@@ -8,7 +8,7 @@ Rust: 36
 Asm: 36
 Emu: 36
 """
-rubric = 1
+rubric = 2
 
 [[tests]]
 name = "midpoint"
@@ -18,7 +18,7 @@ Rust: 2
 Asm: 2
 Emu: 2
 """
-rubric = 1
+rubric = 2
 
 [[tests]]
 name = "max3"
@@ -28,7 +28,7 @@ Rust: 10
 Asm: 10
 Emu: 10
 """
-rubric = 2
+rubric = 3
 
 [[tests]]
 name = "to_upper"
@@ -49,7 +49,7 @@ Rust: 6
 Asm: 6
 Emu: 6
 """
-rubric = 2
+rubric = 3
 
 [[tests]]
 name = "get_bitseq_2"
@@ -59,7 +59,7 @@ Rust: 10
 Asm: 10
 Emu: 10
 """
-rubric = 2
+rubric = 3
 
 [[tests]]
 name = "get_bitseq_signed_1"
@@ -69,7 +69,7 @@ Rust: 6
 Asm: 6
 Emu: 6
 """
-rubric = 4
+rubric = 5
 
 [[tests]]
 name = "get_bitseq_signed_2"
@@ -79,7 +79,7 @@ Rust: -6
 Asm: -6
 Emu: -6
 """
-rubric = 4
+rubric = 5
 
 [[tests]]
 name = "fib_rec"
@@ -99,7 +99,7 @@ Rust: 33 22
 Asm: 33 22
 Emu: 33 22
 """
-rubric = 4
+rubric = 5
 
 [[tests]]
 name = "swap_2"
@@ -138,7 +138,7 @@ Conditional branches   = 0 (0.00%)
   Branches taken       = 0 (0.00%)
   Branches not taken   = 0 (0.00%)
 """
-rubric = 4
+rubric = 5
 
 [[tests]]
 name = "sort_analysis"
@@ -157,7 +157,7 @@ Conditional branches   = 71 (7.80%)
   Branches taken       = 8 (11.27%)
   Branches not taken   = 63 (88.73%)
 """
-rubric = 4
+rubric = 5
 
 [[tests]]
 name = "sort_dm_32_1"
