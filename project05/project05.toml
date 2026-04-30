@@ -1,0 +1,194 @@
+[project]
+timeout = 120
+subdir = "."
+
+
+[[tests]]
+name = "seq-01"
+input = ["python3", "runoctox.py", "seq 5"]
+expected = """
+$ seq 5
+1
+2
+3
+4
+5
+"""
+rubric = 5
+
+
+[[tests]]
+name = "seq-02"
+input = ["python3", "runoctox.py", "seq 1"]
+expected = """
+$ seq 1
+1
+"""
+rubric = 5
+
+
+[[tests]]
+name = "tail-01"
+input = ["python3", "runoctox.py", "seq 12 > /t", "tail /t"]
+expected = """
+$ seq 12 > /t
+$ tail /t
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+"""
+rubric = 5
+
+
+[[tests]]
+name = "tail-02"
+input = ["python3", "runoctox.py", "seq 10 > /t", "tail -n 3 /t"]
+expected = """
+$ seq 10 > /t
+$ tail -n 3 /t
+8
+9
+10
+"""
+rubric = 5
+
+
+[[tests]]
+name = "tail-03"
+input = ["python3", "runoctox.py", "seq 5 > /t", "tail -n 20 /t"]
+expected = """
+$ seq 5 > /t
+$ tail -n 20 /t
+1
+2
+3
+4
+5
+"""
+rubric = 5
+
+
+[[tests]]
+name = "diff-01"
+input = ["python3", "runoctox.py", "seq 3 > /a", "seq 3 > /b", "diff /a /b"]
+expected = """
+$ seq 3 > /a
+$ seq 3 > /b
+$ diff /a /b
+"""
+rubric = 5
+
+
+[[tests]]
+name = "diff-02"
+input = ["python3", "runoctox.py", "seq 3 > /a", "seq 5 > /b", "diff /a /b"]
+expected = """
+$ seq 3 > /a
+$ seq 5 > /b
+$ diff /a /b
+line 4
+<
+---
+> 4
+line 5
+<
+---
+> 5
+"""
+rubric = 5
+
+
+[[tests]]
+name = "diff-03"
+input = ["python3", "runoctox.py", "seq 5 > /a", "seq 3 > /b", "diff /a /b"]
+expected = """
+$ seq 5 > /a
+$ seq 3 > /b
+$ diff /a /b
+line 4
+< 4
+---
+>
+line 5
+< 5
+---
+>
+"""
+rubric = 5
+
+
+[[tests]]
+name = "pipecount-01"
+input = ["python3", "runoctox.py", "pipecount seq 5 : wc"]
+expected = """
+$ pipecount seq 5 : wc
+l=5, w=5, c=10
+pipecount: 10 bytes
+"""
+rubric = 10
+
+
+[[tests]]
+name = "pipecount-02"
+input = ["python3", "runoctox.py", "seq 5 > /a", "pipecount cat /a : wc"]
+expected = """
+$ seq 5 > /a
+$ pipecount cat /a : wc
+l=5, w=5, c=10
+pipecount: 10 bytes
+"""
+rubric = 10
+
+
+[[tests]]
+name = "pipecount-03"
+input = ["python3", "runoctox.py", "seq 100 > /a", "pipecount cat /a : wc"]
+expected = """
+$ seq 100 > /a
+$ pipecount cat /a : wc
+l=100, w=100, c=292
+pipecount: 292 bytes
+"""
+rubric = 10
+
+
+[[tests]]
+name = "history-01"
+input = ["python3", "runoctox.py", "echo hello", "echo world", "history"]
+expected = """
+$ echo hello
+hello
+$ echo world
+world
+$ history
+1 echo hello
+2 echo world
+3 history
+"""
+rubric = 15
+
+
+[[tests]]
+name = "history-02"
+input = ["python3", "runoctox.py", "echo a", "echo b", "echo c", "history"]
+expected = """
+$ echo a
+a
+$ echo b
+b
+$ echo c
+c
+$ history
+1 echo a
+2 echo b
+3 echo c
+4 history
+"""
+rubric = 15
