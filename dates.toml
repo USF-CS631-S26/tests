@@ -44,3 +44,94 @@ percentage = 1.0
 suffix = "due"
 date = "2026-03-12"
 percentage = 1.0
+
+
+[project02]
+
+[[project02.dates]]
+suffix = "due"
+date = "2026-03-27"
+percentage = 1.0
+
+[[project02.dates]]
+suffix = "1week-late"
+date = "2026-04-03"
+percentage = 0.75
+
+[[project02.dates]]
+suffix = "super-late"
+date = "2026-05-22"
+percentage = 0.50
+
+
+[project03]
+
+[[project03.dates]]
+suffix = "due"
+date = "2026-04-03"
+percentage = 1.0
+
+[[project03.dates]]
+suffix = "1week-late"
+date = "2026-04-10"
+percentage = 0.75
+
+[[project03.dates]]
+suffix = "super-late"
+date = "2026-05-22"
+percentage = 0.50
+
+
+[project04]
+
+[[project04.dates]]
+suffix = "due"
+date = "2026-04-28"
+percentage = 1.0
+
+[[project04.dates]]
+suffix = "1week-late"
+date = "2026-05-05"
+percentage = 0.75
+
+[[project04.dates]]
+suffix = "super-late"
+date = "2026-05-22"
+percentage = 0.50
+
+
+[project05]
+
+[[project05.dates]]
+suffix = "due"
+date = "2026-05-12"
+percentage = 1.0
+
+[[project05.dates]]
+suffix = "1week-late"
+date = "2026-05-19"
+percentage = 0.75
+
+[[project05.dates]]
+suffix = "super-late"
+date = "2026-05-22"
+percentage = 0.50
+
+
+[project06]
+
+[[project06.dates]]
+suffix = "due"
+date = "2026-05-22"
+percentage = 1.0
+
+[[project06.dates]]
+suffix = "1week-late"
+date = "2026-05-29"
+percentage = 0.75
+
+[[project06.dates]]
+suffix = "super-late"
+date = "2026-05-30"
+percentage = 0.50
+
