@@ -7,7 +7,7 @@ expected = """
 Rust: 10
 Asm: 10
 """
-rubric = 10
+rubric = 5
 
 [[tests]]
 name = "add4-2"
@@ -16,7 +16,7 @@ expected = """
 Rust: 8
 Asm: 8
 """
-rubric = 10
+rubric = 5
 
 [[tests]]
 name = "quadratic-1"
@@ -25,7 +25,7 @@ expected = """
 Rust: 57
 Asm: 57
 """
-rubric = 10
+rubric = 5
 
 [[tests]]
 name = "quadratic-2"
@@ -34,7 +34,7 @@ expected = """
 Rust: 36
 Asm: 36
 """
-rubric = 10
+rubric = 5
 
 [[tests]]
 name = "min-1"
@@ -43,7 +43,7 @@ expected = """
 Rust: 1
 Asm: 1
 """
-rubric = 15
+rubric = 10
 
 [[tests]]
 name = "min-2"
@@ -52,7 +52,7 @@ expected = """
 Rust: -1
 Asm: -1
 """
-rubric = 15
+rubric = 10
 
 [[tests]]
 name = "findmax-1"
@@ -61,7 +61,8 @@ expected = """
 Rust: 33
 Asm: 33
 """
-rubric = 15
+rubric = 10
+
 
 [[tests]]
 name = "findmax-2"
@@ -70,7 +71,7 @@ expected = """
 Rust: 99
 Asm: 99
 """
-rubric = 15
+rubric = 10
 
 [[tests]]
 name = "grade-1"
