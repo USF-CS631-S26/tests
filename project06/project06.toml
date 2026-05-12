@@ -1,0 +1,144 @@
+[project]
+timeout = 120
+subdir = "."
+
+
+[[tests]]
+name = "track-usage"
+input = ["python3", "runoctox.py", "track"]
+expected = """
+$ track
+usage: track <cmd> [args...]
+"""
+rubric = 5
+
+
+[[tests]]
+name = "track-echo"
+input = ["python3", "runoctox.py", "track echo hello"]
+expected = """
+$ track echo hello
+hello 
+=== track report ===
+PID: 3  Name: echo  Exit: 0
+
+System Calls (total: 4)
+  exit            1
+  write           3      bytes:        7
+
+Memory (total: 118784 bytes)
+  TEXT  :   2 pages
+  DATA  :   2 pages
+  HEAP  :   0 pages
+  STACK :  25 pages
+
+Page Tables (5 pages, 20480 bytes)
+  L2: 1
+  L1: 2
+  L0: 2
+"""
+rubric = 5
+
+
+[[tests]]
+name = "track-wc"
+input = ["python3", "runoctox.py", "track wc README.org"]
+expected = """
+$ track wc README.org
+l=155, w=694, c=5260
+=== track report ===
+PID: 3  Name: wc  Exit: 0
+
+System Calls (total: 22)
+  exit            1
+  read           12      bytes:     5260
+  open            1
+  write           7      bytes:       21
+  close           1
+
+Memory (total: 122880 bytes)
+  TEXT  :   2 pages
+  DATA  :   3 pages
+  HEAP  :   0 pages
+  STACK :  25 pages
+
+Page Tables (5 pages, 20480 bytes)
+  L2: 1
+  L1: 2
+  L0: 2
+"""
+rubric = 10
+
+
+[[tests]]
+name = "track-ls"
+input = ["python3", "runoctox.py", "track ls"]
+expected = """
+$ track ls
+dev            Dir      2 64
+bin            Dir      3 432
+lib            Dir      4 32
+etc            Dir      5 48
+README.org     File     6 5260
+init           File    12 171576
+initcode       File    21 91600
+=== track report ===
+PID: 3  Name: ls  Exit: 0
+
+System Calls (total: 241)
+  exit            1
+  read           65      bytes:     1024
+  fstat           8
+  sbrk            1
+  open            8
+  write         150      bytes:      213
+  close           8
+
+Memory (total: 196608 bytes)
+  TEXT  :   4 pages
+  DATA  :   3 pages
+  HEAP  :  16 pages
+  STACK :  25 pages
+
+Page Tables (5 pages, 20480 bytes)
+  L2: 1
+  L1: 2
+  L0: 2
+"""
+rubric = 10
+
+
+# track-cat creates /a (so cat has something to read), runs track cat /a,
+# then removes /a. The trailing rm /a keeps subsequent runs (track-ls in
+# particular) from seeing a stale /a if the test harness reuses fs.img
+# between invocations.
+[[tests]]
+name = "track-cat"
+input = ["python3", "runoctox.py", "echo hi > /a", "track cat /a", "rm /a"]
+expected = """
+$ echo hi > /a
+$ track cat /a
+hi 
+=== track report ===
+PID: 4  Name: cat  Exit: 0
+
+System Calls (total: 6)
+  exit            1
+  read            2      bytes:        4
+  open            1
+  write           1      bytes:        4
+  close           1
+
+Memory (total: 118784 bytes)
+  TEXT  :   2 pages
+  DATA  :   2 pages
+  HEAP  :   0 pages
+  STACK :  25 pages
+
+Page Tables (5 pages, 20480 bytes)
+  L2: 1
+  L1: 2
+  L0: 2
+$ rm /a
+"""
+rubric = 10
