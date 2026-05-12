@@ -142,3 +142,39 @@ Page Tables (5 pages, 20480 bytes)
 $ rm /a
 """
 rubric = 10
+
+
+# track-grep forces enough heap growth (~8 MB) for the page-table tree to
+# spill across multiple 2 MB regions, taking L0 from 2 to 6. /big is built
+# with head -c 4194304 (head always writes its full buffer, so /big ends
+# up 4 MiB regardless of README.org's actual size). grep then reads the
+# whole file into a String via read_to_string. Trailing rm /big cleans up.
+[[tests]]
+name = "track-grep"
+input = ["python3", "runoctox.py", "head -c 4194304 README.org > /big", "track grep zzzzzz /big", "rm /big"]
+expected = """
+$ head -c 4194304 README.org > /big
+$ track grep zzzzzz /big
+=== track report ===
+PID: 4  Name: grep  Exit: 0
+
+System Calls (total: 131084)
+  exit            1
+  read       131073      bytes:  4194304
+  sbrk            8
+  open            1
+  close           1
+
+Memory (total: 8527872 bytes)
+  TEXT  :   4 pages
+  DATA  :   4 pages
+  HEAP  : 2049 pages
+  STACK :  25 pages
+
+Page Tables (9 pages, 36864 bytes)
+  L2: 1
+  L1: 2
+  L0: 6
+$ rm /big
+"""
+rubric = 10
