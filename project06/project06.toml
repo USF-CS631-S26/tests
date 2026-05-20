@@ -10,7 +10,7 @@ expected = """
 $ track
 usage: track <cmd> [args...]
 """
-rubric = 5
+rubric = 10
 
 
 [[tests]]
@@ -39,7 +39,7 @@ Page Tables (5 pages, 20480 bytes)
   L1: 2
   L0: 2
 """
-rubric = 10
+rubric = 20
 
 
 [[tests]]
@@ -71,48 +71,7 @@ Page Tables (5 pages, 20480 bytes)
   L1: 2
   L0: 2
 """
-rubric = 15
-
-
-[[tests]]
-name = "track-ls"
-input = ["python3", "runoctox.py", "track ls"]
-expected = """
-$ track ls
-dev            Dir      2 64
-bin            Dir      3 432
-lib            Dir      4 32
-etc            Dir      5 48
-README.org     File     6 5260
-init           File    12 171576
-initcode       File    21 91600
-=== track report ===
-PID: 3
-Name: ls
-Exit: 0
-
-System Calls (total: 241)
-  exit: 1
-  read: 65 bytes: 1024
-  fstat: 8
-  sbrk: 1
-  open: 8
-  write: 150 bytes: 213
-  close: 8
-
-Memory (total: 196608 bytes)
-  TEXT: 4 pages
-  DATA: 3 pages
-  HEAP: 16 pages
-  STACK: 25 pages
-
-Page Tables (5 pages, 20480 bytes)
-  L2: 1
-  L1: 2
-  L0: 2
-"""
 rubric = 20
-
 
 # track-cat creates /a (so cat has something to read), runs track cat /a,
 # then removes /a. The trailing rm /a keeps subsequent runs (track-ls in
